@@ -1,9 +1,11 @@
-import 'package:condo_news/models/news_model.dart';
-import 'package:condo_news/screens/detail_screen.dart';
+import 'package:condo_news/domain/models/news_model.dart';
+import 'package:condo_news/presenter/ui/constants/constants.dart';
+import 'package:condo_news/presenter/ui/screens/detail_screen.dart';
+import 'package:condo_news/domain/utils/string_utils.dart';
 import 'package:flutter/material.dart';
 
 class BreakingNewsCard extends StatefulWidget {
-  final NewsData data;
+  final NewsModel data;
 
   const BreakingNewsCard(this.data, {super.key});
 
@@ -35,7 +37,7 @@ class _BreakingNewsCardState extends State<BreakingNewsCard> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             gradient: const LinearGradient(
-              colors: [Colors.transparent, Colors.black],
+              colors: [Colors.transparent, ColorsConstants.black],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),
@@ -48,16 +50,16 @@ class _BreakingNewsCardState extends State<BreakingNewsCard> {
               Text(
                 widget.data.title!,
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: ColorsConstants.white,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(height: 8),
               Text(
-                widget.data.date!,
+                StringUtils().formatDate(widget.data.date!),
                 style: const TextStyle(
-                  color: Colors.white54,
+                  color: ColorsConstants.white50,
                   fontSize: 14,
                   fontWeight: FontWeight.normal,
                 ),

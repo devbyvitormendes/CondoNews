@@ -1,9 +1,10 @@
-import 'package:condo_news/models/news_model.dart';
-import 'package:condo_news/screens/detail_screen.dart';
+import 'package:condo_news/domain/models/news_model.dart';
+import 'package:condo_news/presenter/ui/constants/constants.dart';
+import 'package:condo_news/presenter/ui/screens/detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class NewsListTile extends StatefulWidget {
-  final NewsData data;
+  final NewsModel data;
 
   const NewsListTile(this.data, {super.key});
 
@@ -29,13 +30,13 @@ class _NewsListTileState extends State<NewsListTile> {
         padding: const EdgeInsets.all(12),
         height: 130,
         decoration: BoxDecoration(
-          color: Colors.black,
+          color: ColorsConstants.highlightColor,
           borderRadius: BorderRadius.circular(26),
         ),
         child: Row(
           children: [
             Flexible(
-              flex: 3,
+              flex: 2,
               child: Hero(
                 tag: "${widget.data.title}",
                 child: Container(
@@ -58,10 +59,12 @@ class _NewsListTileState extends State<NewsListTile> {
               child: Column(
                 children: [
                   Text(
-                    widget.data.title!,
+                    widget.data.title!.trim(),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                     style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
+                      color: ColorsConstants.white,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -69,10 +72,10 @@ class _NewsListTileState extends State<NewsListTile> {
                     height: 8,
                   ),
                   Text(
-                    widget.data.content!,
+                    widget.data.content!.trim(),
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      color: Colors.white54,
+                      color: ColorsConstants.white50,
                     ),
                   ),
                 ],

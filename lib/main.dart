@@ -1,4 +1,4 @@
-import 'package:condo_news/screens/home_screen.dart';
+import 'package:condo_news/presenter/ui/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
