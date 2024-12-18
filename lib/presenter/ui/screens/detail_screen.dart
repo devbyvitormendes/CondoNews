@@ -54,7 +54,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(30),
                   child: Image.network(
-                    widget.data.urlToImage!,
+                    widget.data.image!,
                   ),
                 ),
               ),

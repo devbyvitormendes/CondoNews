@@ -1,15 +1,17 @@
 class NewsModel {
-  int? id;
+  String? id;
   String? title;
   String? content;
-  String? urlToImage;
+  String? image;
+  bool? breaking;
   String? date;
 
   NewsModel({
     this.id,
     this.title,
     this.content,
-    this.urlToImage,
+    this.image,
+    this.breaking,
     this.date,
   });
 
@@ -17,26 +19,29 @@ class NewsModel {
     return NewsModel(
       id: json['id'],
       title: json['title'],
-      content: json['summary'],
-      urlToImage: json['image_url'],
-      date: json['published_at'],
+      content: json['content'],
+      image: json['image'],
+      breaking: json['breaking'],
+      date: json['date'],
     );
   }
 
   factory NewsModel.fromMap(Map<String, dynamic> json) {
     switch (json) {
       case {
-          'id': final int id,
+          'id': final String id,
           'title': final String title,
-          'summary': final String content, 
-          'image_url': final String urlToImage,
-          'published_at': final String date,
+          'content': final String content, 
+          'image': final String image,
+          'breaking': final bool breaking,
+          'date': final String date,
         }:
         return NewsModel(
           id: id,
           title: title,
           content: content,
-          urlToImage: urlToImage,
+          image: image,
+          breaking: breaking,
           date: date,
         );
       case _:

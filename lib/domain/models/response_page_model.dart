@@ -2,21 +2,21 @@ import 'dart:developer';
 
 import 'package:condo_news/domain/models/news_model.dart';
 
-class ResponseModel {
+class ResponsePageModel {
   int? count;
   String? next;
   String? previous;
   List<NewsModel>? results;
 
-  ResponseModel({
+  ResponsePageModel({
     this.count,
     this.next,
     this.previous,
     this.results,
   });
 
-  factory ResponseModel.fromJson(Map<String, dynamic> json) {
-    return ResponseModel(
+  factory ResponsePageModel.fromJson(Map<String, dynamic> json) {
+    return ResponsePageModel(
       count: json['count'],
       next: json['next'],
       previous: json['previous'],
@@ -24,7 +24,7 @@ class ResponseModel {
     );
   }
 
-  factory ResponseModel.fromMap(Map<String, dynamic> json) {
+  factory ResponsePageModel.fromMap(Map<String, dynamic> json) {
     switch (json) {
       case {
           'count': final int count,
@@ -32,7 +32,7 @@ class ResponseModel {
           'previous': final String previous,
           'results': final List<NewsModel> results,
         }:
-        return ResponseModel(
+        return ResponsePageModel(
           count: count,
           next: next,
           previous: previous,

@@ -1,6 +1,5 @@
 import 'package:condo_news/presenter/ui/constants/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final bool showBack;

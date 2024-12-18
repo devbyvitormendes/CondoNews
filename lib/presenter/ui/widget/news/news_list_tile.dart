@@ -44,7 +44,7 @@ class _NewsListTileState extends State<NewsListTile> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     image: DecorationImage(
-                      image: NetworkImage(widget.data.urlToImage!),
+                      image: NetworkImage(widget.data.image!),
                       fit: BoxFit.fitHeight,
                     ),
                   ),

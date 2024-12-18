@@ -31,7 +31,7 @@ class _BreakingNewsCardState extends State<BreakingNewsCard> {
             borderRadius: BorderRadius.circular(30),
             image: DecorationImage(
               fit: BoxFit.fill,
-              image: NetworkImage(widget.data.urlToImage!),
+              image: NetworkImage(widget.data.image!),
             )),
         child: Container(
           decoration: BoxDecoration(
