@@ -1,42 +1,50 @@
 import 'dart:developer';
 
-import 'package:condo_news/domain/models/news_model.dart';
-
 class ResponsePageModel {
-  int? count;
-  String? next;
-  String? previous;
-  List<NewsModel>? results;
+  List<dynamic>? content;
+  int number;
+  int size;
+  int totalElements;
+  int totalPages;
+  bool last;
 
   ResponsePageModel({
-    this.count,
-    this.next,
-    this.previous,
-    this.results,
+    this.content,
+    this.number = 0,
+    this.size = 0,
+    this.totalElements = 0,
+    this.totalPages = 0,
+    this.last = false,
   });
 
   factory ResponsePageModel.fromJson(Map<String, dynamic> json) {
     return ResponsePageModel(
-      count: json['count'],
-      next: json['next'],
-      previous: json['previous'],
-      results: List<NewsModel>.from(json['results'].map((news) => NewsModel.fromMap(news))),
+      content: json['content'],
+      number: json['number'],
+      size: json['size'],
+      totalElements: json['totalElements'],
+      totalPages: json['totalPages'],
+      last: json['last'],
     );
   }
 
   factory ResponsePageModel.fromMap(Map<String, dynamic> json) {
     switch (json) {
       case {
-          'count': final int count,
-          'next': final String next,
-          'previous': final String previous,
-          'results': final List<NewsModel> results,
+          'content': final List<dynamic> content,
+          'number': final int number,
+          'size': final int size,
+          'totalElements': final int totalElements,
+          'totalPages': final int totalPages,
+          'last': final bool last,
         }:
         return ResponsePageModel(
-          count: count,
-          next: next,
-          previous: previous,
-          results: results,
+          content: content,
+          number: number,
+          size: size,
+          totalElements: totalElements,
+          totalPages: totalPages,
+          last: last,
         );
       case _:
         log('JSON inválido: $json');

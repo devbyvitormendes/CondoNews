@@ -5,6 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Dev",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "args": [
+                "--dart-define-from-file",
+                "./env/development.env"
+            ],
+        },
+        {
+            "name": "Production",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "args": [
+                "--dart-define-from-file",
+                "./env/production.env"
+            ],
+        },
+        {
             "name": "condo_news",
             "request": "launch",
             "type": "dart"

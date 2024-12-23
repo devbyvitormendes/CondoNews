@@ -20,7 +20,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       children: [
         AppBar(
           elevation: 0,
-          backgroundColor: ColorsConstants.ligthGrey,
+          backgroundColor: ColorsConstants.lightGrey,
           automaticallyImplyLeading: showBack,
           title: Image.asset(
             ImageConstants.textLogo,

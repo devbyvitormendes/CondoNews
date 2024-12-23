@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const Text(
                 "Importante",
                 style: TextStyle(
-                  color: ColorsConstants.ligthGrey,
+                  color: ColorsConstants.lightGrey,
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
                 ),
@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   }
 
                   return const SpinKitSpinningLines(
-                    color: ColorsConstants.ligthGrey,
+                    color: ColorsConstants.lightGrey,
                   );
                 },
               ),
@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const Text(
                 "Recentes",
                 style: TextStyle(
-                  color: ColorsConstants.ligthGrey,
+                  color: ColorsConstants.lightGrey,
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
                 ),
@@ -109,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   }
 
                   return const SpinKitSpinningLines(
-                    color: ColorsConstants.ligthGrey,
+                    color: ColorsConstants.lightGrey,
                   );
                 },
               ),

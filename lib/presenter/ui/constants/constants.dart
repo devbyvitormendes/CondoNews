@@ -4,7 +4,8 @@ sealed class ColorsConstants {
   static const black = Color(0xFF0C0C0C);
   static const blue = Color(0xFF354C6B);
   static const grey = Color(0xFF3A3A3A);
-  static const ligthGrey = Color(0xFFD3D3D3);
+  static const lightGrey = Color(0xFFD3D3D3);
+  static const red = Color(0xFFB33F40);
   static const white = Color(0xFFEAEAEA);
   static const white50 = Color(0x80EAEAEA);
   static const yellow = Color(0xFFF4EA7F);
@@ -12,7 +13,7 @@ sealed class ColorsConstants {
   static const backgroundColor = black;
   static const highlightColor = blue;
   static const iconsColor = black;
-  static const textColor = ligthGrey;
+  static const textColor = lightGrey;
 }
 
 sealed class FontConstants {

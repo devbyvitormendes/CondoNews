@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, '/auth/login');
     });
   }
 
@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsConstants.ligthGrey,
+      backgroundColor: ColorsConstants.lightGrey,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
