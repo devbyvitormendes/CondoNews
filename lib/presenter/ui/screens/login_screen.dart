@@ -18,6 +18,13 @@ class _LoginScreenState extends State<LoginScreen> {
   final AuthService authService = AuthService();
 
   @override
+  void initState() {
+    usernameEC.text = 'testUser';
+    passwordEC.text = '123456';
+    super.initState();
+  }
+
+  @override
   void dispose() {
     usernameEC.dispose();
     passwordEC.dispose();
@@ -163,23 +170,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ],
                     ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.of(context)
-                              .pushNamed('/auth/register/user');
-                        },
-                        child: const Text(
-                          'Nova conta',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: ColorsConstants.blue,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ),
-                    )
                   ],
                 ),
               )

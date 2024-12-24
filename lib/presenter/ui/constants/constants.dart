@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 sealed class ColorsConstants {
   static const black = Color(0xFF0C0C0C);
   static const blue = Color(0xFF354C6B);
+  static const blue50 = Color(0x80354C6B);
+  static const green = Color(0xFF486A47);
   static const grey = Color(0xFF3A3A3A);
   static const lightGrey = Color(0xFFD3D3D3);
   static const red = Color(0xFFB33F40);

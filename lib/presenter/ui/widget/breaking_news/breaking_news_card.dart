@@ -5,7 +5,7 @@ import 'package:condo_news/domain/utils/string_utils.dart';
 import 'package:flutter/material.dart';
 
 class BreakingNewsCard extends StatefulWidget {
-  final NewsModel data;
+  final dynamic data;
 
   const BreakingNewsCard(this.data, {super.key});
 
@@ -14,6 +14,14 @@ class BreakingNewsCard extends StatefulWidget {
 }
 
 class _BreakingNewsCardState extends State<BreakingNewsCard> {
+  late NewsModel news = NewsModel();
+
+  @override
+  void initState() {
+    news = NewsModel.fromJson(widget.data);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -21,17 +29,17 @@ class _BreakingNewsCardState extends State<BreakingNewsCard> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => DetailsScreen(widget.data),
+            builder: (context) => DetailsScreen(news),
           ),
         );
       },
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.85,
+        width: MediaQuery.of(context).size.width * 0.80,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             image: DecorationImage(
               fit: BoxFit.fill,
-              image: NetworkImage(widget.data.image!),
+              image: NetworkImage(news.image!),
             )),
         child: Container(
           decoration: BoxDecoration(
@@ -48,7 +56,7 @@ class _BreakingNewsCardState extends State<BreakingNewsCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                widget.data.title!,
+                news.title!,
                 style: const TextStyle(
                   color: ColorsConstants.white,
                   fontSize: 18,
@@ -57,7 +65,7 @@ class _BreakingNewsCardState extends State<BreakingNewsCard> {
               ),
               const SizedBox(height: 8),
               Text(
-                StringUtils().formatDate(widget.data.date!),
+                StringUtils().formatDate(news.date!),
                 style: const TextStyle(
                   color: ColorsConstants.white50,
                   fontSize: 14,

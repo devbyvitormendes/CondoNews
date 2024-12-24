@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 class ResponsePageModel {
@@ -50,5 +51,9 @@ class ResponsePageModel {
         log('JSON inválido: $json');
         throw ArgumentError('JSON inválido');
     }
+  }
+
+  static FutureOr<ResponsePageModel>? empty() {
+    return ResponsePageModel();
   }
 }

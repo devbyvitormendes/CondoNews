@@ -1,3 +1,4 @@
+import 'package:condo_news/presenter/ui/condo_news_icon.dart';
 import 'package:condo_news/presenter/ui/constants/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -33,11 +34,12 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
             Visibility(
               visible: showActions,
               child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.notifications_outlined,
-                    color: ColorsConstants.iconsColor,
-                  )),
+                onPressed: () {},
+                icon: const Icon(
+                  CondoNewsIcon.notification,
+                  color: ColorsConstants.iconsColor,
+                ),
+              ),
             )
           ],
         ),

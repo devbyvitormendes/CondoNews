@@ -1,13 +1,15 @@
 import 'dart:convert';
 
 import 'package:condo_news/domain/env/environment.dart';
+import 'package:condo_news/domain/models/exception_model.dart';
 import 'package:condo_news/domain/models/news_model.dart';
 import 'package:condo_news/domain/models/response_page_model.dart';
 import 'package:condo_news/services/base_service.dart';
+import 'package:condo_news/services/exception/condo_exception.dart';
 import 'package:http/http.dart' as http;
 
 class NewsService extends BaseService {
-  Future<List<NewsModel>> getBreakingNews() async {
+  Future<ResponsePageModel> getBreakingNews() async {
     await setAuthHeader();
     final response = await http.get(
         Uri.parse('${Environment.baseUrl}/v1/news/breaking'),
@@ -15,34 +17,24 @@ class NewsService extends BaseService {
 
     if (response.statusCode == 200) {
       dynamic data = jsonDecode(utf8.decode(response.bodyBytes));
-      ResponsePageModel pageModel = ResponsePageModel.fromJson(data);
-
-      if (pageModel.content == null || pageModel.content == []) {
-        return [];
-      } else {
-        return pageModel.content!.map((e) => NewsModel.fromMap(e)).toList();
-      }
+      return ResponsePageModel.fromJson(data);
     } else {
-      throw Exception('Falha ao buscar notícias');
+      parseError(response);
+      throw Exception('Falha ao buscar destaques.');
     }
   }
 
-  Future<List<NewsModel>> getNews() async {
+  Future<ResponsePageModel> getNews(int page, int size) async {
     await setAuthHeader();
-    final response = await http.get(Uri.parse('${Environment.baseUrl}/v1/news'),
+    final response = await http.get(Uri.parse('${Environment.baseUrl}/v1/news?page=$page&size=$size'),
         headers: headers);
 
     if (response.statusCode == 200) {
       dynamic data = jsonDecode(utf8.decode(response.bodyBytes));
-      ResponsePageModel pageModel = ResponsePageModel.fromJson(data);
-
-      if (pageModel.content == null || pageModel.content == []) {
-        return [];
-      } else {
-        return pageModel.content!.map((e) => NewsModel.fromMap(e)).toList();
-      }
+      return ResponsePageModel.fromJson(data);
     } else {
-      throw Exception('Falha ao buscar notícias');
+      parseError(response);
+      throw Exception('Falha ao buscar notícias.');
     }
   }
 
@@ -57,7 +49,19 @@ class NewsService extends BaseService {
 
       return NewsModel.fromMap(data);
     } else {
+      parseError(response);
       throw Exception('Falha ao buscar notícias');
+    }
+  }
+  
+  void parseError(http.Response response) {
+    switch (response.statusCode) {
+      case 403:
+        throw const CondoException('Acesso não permitido.');
+      default: {
+        ExceptionModel exception = ExceptionModel.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
+        throw CondoException(exception.message);
+      }
     }
   }
 }

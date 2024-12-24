@@ -10,7 +10,7 @@ sealed class Messages {
     showTopSnackBar(
       Overlay.of(context),
       CustomSnackBar.error(
-        backgroundColor: ColorsConstants.black,
+        backgroundColor: ColorsConstants.red,
         textStyle: const TextStyle(
           fontSize: 16,
           color: ColorsConstants.white,
@@ -20,7 +20,7 @@ sealed class Messages {
         icon: const Icon(
           CondoNewsIcon.error,
           size: 120,
-          color: ColorsConstants.white,
+          color: ColorsConstants.white50,
         ),
       ),
     );
@@ -30,7 +30,7 @@ sealed class Messages {
     showTopSnackBar(
       Overlay.of(context),
       CustomSnackBar.info(
-        backgroundColor: ColorsConstants.black,
+        backgroundColor: ColorsConstants.blue,
         textStyle: const TextStyle(
           fontSize: 16,
           color: ColorsConstants.white,
@@ -40,7 +40,7 @@ sealed class Messages {
         icon: const Icon(
           CondoNewsIcon.info,
           size: 120,
-          color: ColorsConstants.white,
+          color: ColorsConstants.white50,
         ),
       ),
     );
@@ -50,7 +50,7 @@ sealed class Messages {
     showTopSnackBar(
       Overlay.of(context),
       CustomSnackBar.success(
-        backgroundColor: ColorsConstants.black,
+        backgroundColor: ColorsConstants.green,
         textStyle: const TextStyle(
           fontSize: 16,
           color: ColorsConstants.white,
@@ -60,7 +60,7 @@ sealed class Messages {
         icon: const Icon(
           CondoNewsIcon.success,
           size: 120,
-          color: ColorsConstants.white,
+          color: ColorsConstants.white50,
         ),
       ),
     );
@@ -70,10 +70,10 @@ sealed class Messages {
     showTopSnackBar(
       Overlay.of(context),
       CustomSnackBar.info(
-        backgroundColor: ColorsConstants.black,
+        backgroundColor: ColorsConstants.yellow,
         textStyle: const TextStyle(
           fontSize: 16,
-          color: ColorsConstants.white,
+          color: ColorsConstants.blue,
           fontWeight: FontWeight.w900,
         ),
         message: message,
@@ -82,7 +82,7 @@ sealed class Messages {
         icon: const Icon(
           CondoNewsIcon.warning,
           size: 120,
-          color: ColorsConstants.white,
+          color: ColorsConstants.blue50,
         ),
       ),
     );

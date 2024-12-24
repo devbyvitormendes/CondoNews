@@ -5,6 +5,8 @@ class CondoNewsIcon {
 
   static const IconData error = FontAwesomeIcons.circleExclamation;
   static const IconData info = FontAwesomeIcons.circleInfo;
+  static const IconData notification = FontAwesomeIcons.bell;
+  static const IconData refresh = FontAwesomeIcons.arrowsRotate;
   static const IconData success = FontAwesomeIcons.circleCheck;
   static const IconData warning = FontAwesomeIcons.triangleExclamation;
 
